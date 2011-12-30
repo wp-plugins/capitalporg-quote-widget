@@ -6,11 +6,11 @@ Requires at least: 3.3
 Tested up to: 3.4-alpha
 Stable tag: 0.1
 
-Grab a quote from captialp.org, display it.
+Grab a quote from capitalp.org, display it.
 
 == Description ==
 
-Grab a quote from captialp.org, display it.
+Grab a quote from capitalp.org, display it.
 
 Probably works with versions of WP older than 3.3, but I haven't tested it.
 

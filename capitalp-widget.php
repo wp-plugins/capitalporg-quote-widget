@@ -2,7 +2,7 @@
 /*
 Plugin Name: CapitalP.org Quote Widget
 Plugin URI: http://trepmal.com/2011/12/30/capitalp-org-wordpress-widget/
-Description: Grab a quote from captialp.org, display it.
+Description: Grab a quote from capitalp.org, display it.
 Version: 0.1
 Author: Kailey Lampert
 Author URI: http://kaileylampert.com
