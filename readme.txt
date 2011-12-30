@@ -4,7 +4,7 @@ Donate link: http://kaileylampert.com/donate/
 Tags: widget, capitalp.org, capital_P_dangit
 Requires at least: 3.3
 Tested up to: 3.4-alpha
-Stable tag: 4.3
+Stable tag: 0.1
 
 Grab a quote from captialp.org, display it.
 
