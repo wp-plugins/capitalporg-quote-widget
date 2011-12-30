@@ -1,6 +1,11 @@
 <?php
 /*
 Plugin Name: CapitalP.org Quote Widget
+Plugin URI: http://trepmal.com/2011/12/30/capitalp-org-wordpress-widget/
+Description: Grab a quote from captialp.org, display it.
+Version: 0.1
+Author: Kailey Lampert
+Author URI: http://kaileylampert.com
 */
 
 add_action( 'widgets_init', 'register_capitalp_widget' );
