@@ -3,7 +3,7 @@
 Plugin Name: CapitalP.org Quote Widget
 Plugin URI: http://trepmal.com/2011/12/30/capitalp-org-wordpress-widget/
 Description: Grab a quote from capitalp.org, display it.
-Version: 0.2
+Version: 0.3
 Author: Kailey Lampert
 Author URI: http://kaileylampert.com
 */
@@ -35,11 +35,22 @@ function capitalp_shortcode( $atts ) {
 	extract( shortcode_atts( array(
 		'markup' => true,
 		'cite' => true,
+		'id' => '',
 	), $atts ) );
 
-	$quote = get_capitalp_quote();
-	if ( ! $markup ) $quote = get_capitalp_quote( false );
-	if ( ! $cite ) $quote = get_capitalp_quote( true, false );
+	$_markup = $markup ? 'true' : 'false';
+	$_cite = $cite ? 'true' : 'false';
+	$id .= $_markup.$_cite;
+
+ 	$transient = substr( 'capitalp_shortcode-'.$id, 0, 40 );
+
+	if ( false === ( $quote = get_transient( $transient ) ) ) {
+		$quote = get_capitalp_quote();
+		if ( ! $markup ) $quote = get_capitalp_quote( false );
+		if ( ! $cite ) $quote = get_capitalp_quote( true, false );
+		set_transient( $transient, $quote, 60*15 ); //15 minutes
+	}
+
 
 	return $quote;
 }
@@ -63,8 +74,15 @@ class CapitalP_Quote_Widget extends WP_Widget {
 		echo $before_widget;
 
 		echo $instance['hide_title'] ? '' : $before_title . $instance['title'] . $after_title;
+		
+		$transient = $args['widget_id'] .'_content';
 
-		echo get_capitalp_quote( false );
+		if ( false === ( $quote = get_transient( $transient ) ) ) {
+			$quote = get_capitalp_quote( false );
+			set_transient( $transient, $quote, 60*15 ); //15 minutes
+		}
+
+		echo $quote;
 
 		echo $instance['hide_citation'] ? '' : '<p>&mdash; <a href="http://capitalP.org/">capitalP.org</a></p>';
 

@@ -3,8 +3,8 @@ Contributors: trepmal
 Donate link: http://kaileylampert.com/donate/
 Tags: widget, capitalp.org, capital_P_dangit
 Requires at least: 3.3
-Tested up to: 3.4-alpha
-Stable tag: 0.2
+Tested up to: 3.4-beta3
+Stable tag: trunk
 
 Grab a quote from capitalp.org, display it.
 
@@ -60,6 +60,9 @@ The Capital “P” in WordPress <b>plays Angry Birds at full volume on the bus.
 The shortcode cometh
 
 == Changelog ==
+
+= 0.3 =
+* Using transients to cache (up to 15 minutes)
 
 = 0.2 =
 * The shortcode cometh
